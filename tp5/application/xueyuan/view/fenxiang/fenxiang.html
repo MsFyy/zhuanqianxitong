@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	{include file="public/head"}
+	<head>
+</head>
+	<body class="no-skin">
+		<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+							<li>
+								<a href="#">我的分享</a>
+							</li>
+							<li class="active">分享信息</li>
+						</ul><!-- /.breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- /.nav-search -->
+					</div>
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								我的分享
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									分享信息
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<form name="myForm" action="{:url('fenxiang/fenxiangupdate')}" method="post"  class="form-horizontal" role="form">
+						<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 内容：</label>
+<div class="col-sm-9">
+	<textarea name="content"  rows="23" class="form-control" id="form-field-8" placeholder="填写你的推荐内容">{$fenxiang->content}</textarea>
+ </div>
+     
+									</div>
+{:token()}	
+<input type="hidden" name="id" value="{$fenxiang->id}">
+					<input type="hidden" name="xueyuanid" value="{$Think.session.id}">
+					<input type="hidden" name="xueyuanleixing" value="{$Think.session.leixing}">	
+									<div class="space-4"></div>
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												修改
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												重置
+											</button>
+										</div>
+									</div>
+								</form>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+	</body>
+</html>

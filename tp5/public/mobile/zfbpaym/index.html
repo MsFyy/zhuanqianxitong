@@ -1,0 +1,80 @@
+<html lang="zh-CN" class=" "><head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MZ-NetBlog木庄网络博客DTcms二次开发版源码下载-木庄网络博客</title>
+    <meta name="keywords" content="木庄网络博客,源码">
+    <meta name="description" content="木庄网络博客DTcms二次开发版源码已整理完毕，现免费分享给大家。本着对技术的学习与交流的目的，代码质量可能不是很高，还望大家伙有发现BUG之类的问题，欢迎联系站长沟通交流，也可以通过木庄网络博客交流群进行讨论。在此谢过。源码下载地址：https://muzhuanggzs.pipipan.…">
+    <meta http-equiv="windows-Target " content="_top ">
+<link rel="stylesheet" type="text/css" href="publics/index/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/nprogress.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/style.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/font-awesome.min.css">
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+</head>
+<body class="user-select single">
+    <section class="container">
+  <div class="content-wrap">
+    <div class="content">
+
+        <div class="article-tags">课程名称：<a href="http://www.muzhuangnet.com/tags/list/3/" rel="tag" draggable="false">{$neirong->name}</a><a href="http://www.muzhuangnet.com/tags/list/756/" rel="tag" draggable="false">价格：{$neirong->jiage}元</a>
+        </div>
+        <div class="article-shang">
+            <p><a href="javascript:void(0)" rel="nofollow" style="color: #fff" onclick="dashangToggle()" class="dashang" title="打赏，支持一下" draggable="false">打赏</a>
+            </p>
+        </div>
+        <div class="hide_box">
+                            </div>
+                            <div class="shang_box">
+                             
+                                <div class="shang_tit">
+                                    <p>
+                                        课程名称：{$neirong->name}价格：{$neirong->jiage}感谢您的支持，我会继续努力的!</p>
+                                </div>
+                                <div class="shang_payimg">
+                                   <img alt="模式二扫码支付" src="/public/index.php/index/wxpay/erweima?data={$url2}" style="width:150px;height:150px;"/>
+                                </div>
+                                
+                                   
+                               
+                                
+                            </div>
+      
+      
+        
+      
+    </div>
+  </div>
+
+</section>
+    <footer class="footer">
+      <div class="container">
+        <p>本站[<a href="http://www.muzhuangnet.com/" draggable="false">木庄网络博客</a>]的部分内容来源于网络，若侵犯到您的利益，请联系站长删除！谢谢！Powered By [<a href="http://www.dtcms.net/" target="_blank" rel="nofollow" draggable="false">DTcms</a>] Version 4.0</p>
+      </div>
+      <div id="gotop" style="display: none;"><a class="gotop" draggable="false"></a></div>
+</footer>
+    <div id="rightClickMenu">
+    <ul class="list-group rightClickMenuList">
+        <li class="list-group-item disabled">欢迎访问木庄网络博客</li>
+        <li class="list-group-item disabled"><span>可复制：</span>代码框内的文字。</li>
+        <li class="list-group-item disabled"><span>方法：</span>Ctrl+C。</li>
+    </ul>
+</div>
+<script>
+function get_pay_status(){
+   url="{:url('wxpay/paystatus')}";
+   pay_success_url="{:url('wxpay/paysuccess')}";
+   var id="{$id}";
+   postData={
+    'id':id,
+   };
+   $.post(url,postData,function(result){
+         if(result.code==1){
+            self.location=pay_success_url;
+         }
+    },'JSON');
+}
+window.setInterval("get_pay_status()",2000);
+</script>
+</body></html>

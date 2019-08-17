@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/css/example.css"/>
+     <link rel="stylesheet" href="publics/mobile/css/swiper/css/swiper.min.css">
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title" style="align:center;margin-top:20px;font-size:18px;width:120px;margin-left:110px;display:block">账号登录</h1>
+        <p class="page__desc"></p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-cells__title"></div>
+        <form action="{:url('/xueyuan/login/index')}" method="post">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">账号</label></div>
+                <div class="weui-cell__bd">
+                    <input name="username" class="weui-input" type="text"  placeholder="字母或数字" onKeyUp="value=value.replace(/[\W]/g,'')">  
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+                <div class="weui-cell__bd">
+                     <input name="password" type="password" class="weui-input" placeholder="请输入密码">
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells__tips">底部说明文字底部说明文字</div>
+
+
+
+        <div class="weui-btn-area">
+            <button type="submit" class="weui-btn weui-btn_primary">登录</button>
+         
+        </div>
+        </form>
+        <div class="weui-loadmore weui-loadmore_line">
+            <span class="weui-loadmore__tips">其他登录方式</span>
+        </div>
+        <div style="align:center;margin-top:20px;font-size:18px;width:120px;margin-left:120px;display:block">
+        <a href="{:url('xueyuan/weixinm/qianduanweixinlogin')}" target="_parent"> <img src="publics/index/images/weixin1.png"/></a>
+        <a href="{:url('xueyuan/qq/qianduanqqlogin')}" target="_parent"><img src="publics/index/images/qq1.png"></a>
+        </div>
+    </div>
+</div>
+<script src="publics/mobile/js/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">{$neirong->name}</h1>
+        <p class="page__desc"></p>
+    </div>
+    <div class="page__bd">
+     {volist name="neirongmulu" id="vo" key="k"}
+        <a href="{:url('content',['id'=>$vo.id])}" target="mulu">
+        <div class="weui-cells__title">第{$k}章：{$vo.name}</div>
+        </a>
+        <div class="weui-cells">
+         {volist name="$vo.child" id="vo1" key="z"}
+            <a class="weui-cell weui-cell_access" href="{:url('content',['id'=>$vo1.id])}" target="mulu">
+                <div class="weui-cell__bd">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;第{$z}节：{$vo1.name}</p>
+                </div>
+                <div class="weui-cell__ft">
+                </div>
+            </a>
+              {/volist}
+        </div>
+    </div>
+    {/volist}
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+    </div>
+</div>
+<script src="publics/mobile/js/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+</script>
+</body>
+</html>

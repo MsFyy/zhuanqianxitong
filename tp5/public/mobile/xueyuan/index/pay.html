@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/css/example.css"/>
+    <link rel="stylesheet" href="publics/mobile/swiper/css/swiper.min.css">
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">课程：{$neirong.name}</h1>
+        <p class="page__desc">费用：{$neirong.jiage}</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-cells__title">选择支付方式</div>
+        <div class="weui-cells weui-cells_radio">
+            <label class="weui-cell weui-check__label" for="x11">
+                <div class="weui-cell__bd">
+                   <img src="publics/index/images/zhifubao.jpg" alt="" style="width:80px;margin-right:5px;display:block">
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" class="weui-check" name="radio1" id="x11"/>
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="x12">
+                
+                <div class="weui-cell__bd">
+                    <img src="publics/index/images/weixinzhifu.jpg" alt="" style="width:80px;margin-right:5px;display:block">
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked"/>
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd">添加更多</div>
+            </a>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="{:url('index/pay')}" class="weui-btn weui-btn_primary">确认支付</a>
+                
+            </p>
+        </div>
+     
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+</body>
+</html>

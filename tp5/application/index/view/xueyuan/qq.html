@@ -1,0 +1,23 @@
+ <html lang="zh-cn">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>
+            Demo for QQ登录oauth2.0
+        </title>
+        <script type="text/javascript">
+            var childWindow;
+            function toQzoneLogin()
+            {
+                childWindow = window.open("qqdenglu","TencentLogin","width=450,height=320,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+            } 
+            
+            function closeChildWindow()
+            {
+                childWindow.close();
+            }
+        </script>
+    </head>
+    <body>
+        <a href="#" onclick='toQzoneLogin()'><img src="publics/index/images/qq1.png"></a>
+    </body>
+</html>

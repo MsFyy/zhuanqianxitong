@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/css/example.css"/>
+     <link rel="stylesheet" href="publics/mobile/css/swiper/css/swiper.min.css">
+</head>
+<body ontouchstart>
+<div class="page">
+   <!--  <div class="page__hd">
+        <h1 class="page__title">Panel</h1>
+        <p class="page__desc">面板</p>
+    </div> -->
+    <div class="page__bd">
+        <div class="weui-panel weui-panel_access">      
+        </div>
+            <div class="weui-panel">
+            <div class="weui-panel__hd">个人信息 <a href="{:url('/xueyuan/index')}" target="content"><--返回</a></div>
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_small-appmsg">
+                    <div class="weui-cells">
+                        <a class="weui-cell weui-cell_access" href="javascript:;">
+                            
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>登录类型&nbsp;:&nbsp;{$xinxi->leixing|leixing}</p>
+                            </div>
+                            
+                        </a>
+                        <a class="weui-cell weui-cell_access" href="javascript:;">
+                            
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>登录名&nbsp;:&nbsp;{$xinxi->username}</p>
+                            </div>
+                            
+                        </a>
+                        <a class="weui-cell weui-cell_access" href="javascript:;">
+                            
+                            <div class="weui-cell__bd weui-cell_primary">
+                                 <p>手机&nbsp;:&nbsp;{$xinxi->mobile}</p>
+                            </div>
+                            
+                        </a>
+                        <a class="weui-cell weui-cell_access" href="javascript:;">
+                           
+                            <div class="weui-cell__bd weui-cell_primary">
+                                 <p>邮箱&nbsp;:&nbsp;{$xinxi->email}</p>
+                            </div>
+                           
+                        </a>
+                         <a class="weui-cell weui-cell_access" href="javascript:;">
+                            
+                            <div class="weui-cell__bd weui-cell_primary">
+                                 <p>注册日期&nbsp;:&nbsp;{$xinxi->create_time}</p>
+                            </div>
+                           
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+</body>
+</html>

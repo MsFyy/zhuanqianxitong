@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+	{include file="public/head"}
+	<body class="no-skin">	
+	<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+							<li class="active">内容管理</li>
+						</ul><!-- /.breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- /.nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="ace-settings-container" id="ace-settings-container">
+							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+								<i class="ace-icon fa fa-cog bigger-130"></i>
+							</div>
+
+							<div class="ace-settings-box clearfix" id="ace-settings-box">
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<div class="pull-left">
+											<select id="skin-colorpicker" class="hide">
+												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
+												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+											</select>
+										</div>
+										<span>&nbsp; Choose Skin</span>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
+										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
+										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
+										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
+										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
+										<label class="lbl" for="ace-settings-add-container">
+											Inside
+											<b>.container</b>
+										</label>
+									</div>
+								</div><!-- /.pull-left -->
+
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
+										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
+										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
+										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+									</div>
+								</div><!-- /.pull-left -->
+							</div><!-- /.ace-settings-box -->
+						</div><!-- /.ace-settings-container -->
+
+						<div class="page-header">
+							<h1>
+								内容管理
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									>>添加内容
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+             <!-- 公共区开始 -->
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+							<form action="{:url('neirong/neirongsave')}" method="post" class="form-horizontal" role="form">
+
+							<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+										所属类别：</label>
+
+										<div class="col-sm-9">
+										<select name="dalei" class="col-xs-10 col-sm-3" id="daleiid">
+										    <option value="">请选择类别</option>
+											{volist name="dalei" id="vo"}
+											<option value="{$vo.id}">{$vo.name}</option>	
+											{/volist}				
+										</select>
+										<select name="zilei" class="col-xs-10 col-sm-2" id="zileiid">
+											<option value="">请选择子类</option>					
+										</select>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+										名称：</label>
+
+										<div class="col-sm-9">
+											<input name="name" type="text" id="form-field-1" placeholder="名称" value="" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+										关键词：</label>
+
+										<div class="col-sm-9">
+											<input name="guanjianci" type="text" id="form-field-1" placeholder="名称" value="" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+ <div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 产品缩略图：</label>
+
+	<div class="col-sm-5">
+		<div class="widget-box">
+			<div class="widget-header">
+				<h4 class="widget-title">添加导航图片</h4>
+          	</div>
+<div class="widget-body">
+	<div class="widget-main">
+		<div class="form-group">
+			<div class="col-xs-12">
+				 <input type="file" class="file" name="image" id="file" data-rule="required">
+                 <input type="hidden" class="input-text" value=""  id="dizhi" name="suoluetu" data-rule="required">
+                  <button onclick="return false;" id="sub">点击上传</button>
+                  <div id="content"> </div>
+			</div>
+		</div>		
+	</div>
+</div>
+	</div>
+</div>
+</div>
+
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+										排序：</label>
+
+										<div class="col-sm-9">
+											<input name="paixu" type="text" id="form-field-1" placeholder="名称" value="" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+									
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+						推荐：</label>
+
+						<div class="col-sm-9">
+							<select name="tuijian" class="col-xs-10 col-sm-5" id="form-field-select-1">
+							<option value="1">推荐</option>	
+							<option value="0">不推荐</option>	
+										
+						</select>
+						</div>
+					</div>		
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+						广告：</label>
+
+						<div class="col-sm-9">
+							<select name="guanggao" class="col-xs-10 col-sm-5" id="form-field-select-1">
+							<option value="1">显示</option>	
+							<option value="0">不显示</option>	
+										
+						</select>
+						</div>
+					</div>			
+									
+                    <div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+						状态：</label>
+
+						<div class="col-sm-9">
+							<select name="zhuangtai" class="col-xs-10 col-sm-5" id="form-field-select-1">
+							<option value="1">显示</option>	
+							<option value="0">不显示</option>	
+										
+						</select>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+						概述：</label>
+
+						<div class="col-sm-9">
+							<textarea name="gaishu" class="form-control" id="form-field-8" placeholder="Default Text"></textarea>
+						</div>
+					</div>		
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+	内容：</label>
+
+	<div class="col-sm-9">
+		 <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="publics/admin/bianjiqi/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="publics/admin/bianjiqi/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+
+
+	</div>
+</div>
+
+
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												提交
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												重置
+											</button>
+										</div>
+									</div>
+
+									<div class="hr hr-24"></div>
+								</form>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+
+            <!-- /公共区结束 -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+<script type="text/javascript">
+   $('#sub').click(function () {
+      ajaxPost();
+    }) 
+   function ajaxPost(){
+   	var formData = new FormData();
+    if($('#file')[0].files.length <= 0) {
+      alert('请选择文件');
+      return;
+    }
+    formData.append('image', $('#file')[0].files[0]);
+    $.ajax({
+      type:'post',
+      url:"{:url('huandengpian/picture')}",  
+      data: formData,
+      cache: false,
+      processData: false,
+      contentType: false,
+    success:function(data){
+      if(data){
+      	var html='<img src="'+data.src+'" width="480" height="135">'
+       $('#content').html(html);
+       $('[name=suoluetu]').val(data.src);
+      }else{
+      	alert("上传失败")
+      }
+   }
+   })
+  }
+</script>
+<script type="text/javascript">
+ $('#daleiid').change(function(){
+   $daleiid=$('#daleiid').val();
+   $.ajax({
+     type:'post',
+     url:"{:url('neirong/getzilei')}", 
+     data: 'daleiid='+$daleiid,
+     dataType:"json",
+     success:function(data){
+     	var html;
+     	for(var i in data) {
+     		html+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
+     	}
+     	$('#zileiid').html(html);
+      }
+   })
+ })
+</script>
+	</body>
+</html>

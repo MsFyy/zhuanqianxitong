@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+</head>
+<body ontouchstart>
+<div class="page">
+ {include file="public/flash"}
+    <div class="page__bd">
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__hd">推荐内容</div>
+            <div class="weui-panel__bd">
+                {volist name="tuijian" id="vo" length="20"} 
+                <a href="{:url('chapter',['id'=>$vo.id])}" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="publics/mobile/images/xiaobiao.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">{$vo.name}</h4>
+                        <p class="weui-media-box__desc">{$vo.gaishu}</p>
+                    </div>
+                    <div class="weui-cell__ft">2019-01-28</div>
+                </a>
+                {/volist} 
+            </div>
+            <div class="weui-panel__ft">
+                <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-cell__bd">查看更多</div>
+                    <span class="weui-cell__ft"></span>
+                </a>    
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/css/example.css"/>
+     <link rel="stylesheet" href="publics/mobile/css/swiper/css/swiper.min.css">
+<script>
+function validateForm(){
+  var x=document.forms["myForm"]["xinpassword"].value;
+if (x==null || x==""){
+  alert("两次新密码输入不一致或新密码不能为空");
+  return false;
+  }
+}
+</script>
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title"></h1>
+        <p class="page__desc"></p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-cells__title">密码修改<a href="{:url('/xueyuan/index')}" target="content"><--返回</a></div>
+        <form action="{:url('gerenxinxi/mimaupdate')}" onsubmit="return validateForm()" method="post">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">原密码</label></div>
+                <div class="weui-cell__bd">
+                    <input name="password" class="weui-input" type="password"  placeholder="请输入原密码">  
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">新密码</label></div>
+                <div class="weui-cell__bd">
+                     <input name="xinpassword" type="password" class="weui-input" placeholder="请输入新密码">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">确认新密码</label></div>
+                <div class="weui-cell__bd">
+                     <input name="cxinpassword" type="password" class="weui-input" placeholder="请再次输入密码">
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells__tips">底部说明文字底部说明文字</div>
+
+
+
+        <div class="weui-btn-area">
+            <button type="submit" class="weui-btn weui-btn_primary">登录</button>
+         
+        </div>
+        </form>
+        <div class="weui-loadmore weui-loadmore_line">
+            <span class="weui-loadmore__tips">其他登录方式</span>
+        </div>
+        <div style="align:center;margin-top:20px;font-size:18px;width:120px;margin-left:120px;display:block">
+        <a href="{:url('xueyuan/weixin/qianduanweixinlogin')}"> <img src="publics/index/images/weixin1.png"/></a>
+        <a onclick='toQzoneLogin()'><img src="publics/index/images/qq1.png"></a>
+        </div>
+    </div>
+</div>
+<script src="publics/mobile/js/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+</body>
+</html>

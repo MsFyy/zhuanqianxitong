@@ -1,0 +1,57 @@
+<html class=" " lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>书签-木庄网络博客</title>
+    <meta name="keywords" content="书签,木庄网络博客,IT技术,网络推广,编程技术,网站模板,SEO优化">
+    <meta name="description" content="书签,木庄网络博客，互联网创业浪潮中关注IT技术、站长、网络推广等资讯以及技术的记录与分享。">
+    <meta http-equiv="windows-Target " content="_top ">
+<link rel="stylesheet" type="text/css" href="publics/index/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/nprogress.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/style.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/font-awesome.min.css">
+<link rel="apple-touch-icon-precomposed" href="publics/index/images/icon.png">
+<script src="publics/index/js/jquery-2.1.4.min.js"></script>
+<script src="publics/index/js/nprogress.js"></script>
+<script src="publics/index/js/jquery.lazyload.min.js"></script>
+</head>
+<body class="user-select">
+{include file="public/nav"} 
+    <section class="container container-page">
+  <div class="pageside">
+    <div class="pagemenus">
+     <ul class="pagemenu">
+     <li><a href="" title="标签云" draggable="false">名称：{$neirong->name}</a></li>
+   
+     </ul>
+      <ul class="pagemenu">
+                
+                  {volist name="neirongmulu" id="vo" key="k"}
+                    <li><a href="{:url('content',['id'=>$vo.id])}" target="content" title="标签云" draggable="false">第{$k}章：{$vo.name}</a></li>
+                     {volist name="$vo.child" id="vo1" key="z"}
+                    <li><a href="{:url('content',['id'=>$vo1.id])}" target="content"  title="书签" draggable="false">&nbsp;&nbsp;&nbsp;&nbsp;第{$z}节:{$vo1.name}</a></li>
+                     {/volist}
+                   {/volist}
+                </ul>
+            </div>
+        </div>
+         <!--公共区域 -->
+         <iframe name="content" id="content" src="{:url('index/jianjie')}" frameborder="0" scrolling="no" width="100%"></iframe>
+            <script type="text/javascript">
+                  function reinitIframe(){
+                  var iframe = document.getElementById("content");
+                  try{
+                  var bHeight = iframe.contentWindow.document.body.scrollHeight;
+                  var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+                  var height = Math.max(bHeight, dHeight);
+                  iframe.height = height;
+                  console.log(height);
+                  }catch (ex){}
+                  }
+                  window.setInterval("reinitIframe()", 200);
+                  </script>
+       
+</section>
+</body>
+</html>

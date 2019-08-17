@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	{include file="public/head"}
+	<head>
+</head>
+	<body class="no-skin">
+		<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+							<li>
+								<a href="#">内容管理</a>
+							</li>
+							<li class="active">编辑内容</li>
+						</ul><!-- /.breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- /.nav-search -->
+					</div>
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								内容管理
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									编辑内容
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<form name="myForm" action="{:url('neirong/neirongupdate')}" method="post"  class="form-horizontal" role="form">
+								    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属类别：</label>
+										<div class="col-sm-9">
+											<select name="dalei" id="daleiid" class="col-xs-10 col-sm-2">
+																<option value="">请选择所属类别</option>
+																 {volist name="dalei" id="vo"}
+	                                        <option value="{$vo.id}" {if condition="$neirong.leibie eq $vo.id"} selected="selected"{/if}>--{$vo.name}</option>
+	                                         {/volist}
+											</select>
+												<select name="zilei" id="zileiid" class="col-xs-10 col-sm-2">
+												 {volist name="xiaolei" id="vo"}
+												 {if condition="$neirong.leibieer eq $vo.id"}
+																<option value="{$vo.id}" {if condition="$neirong.leibieer eq $vo.id"} selected="selected"{/if}>--{$vo.name}</option> 
+												{/if}
+												 {/volist} 
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 标题：</label>
+
+										<div class="col-sm-9">
+											<input name="name" value="{$neirong->name}" type="text" id="form-field-1" placeholder="名称" class="col-xs-10 col-sm-4" />
+										</div>
+									</div>
+                                                                         <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+										价格：</label>
+
+									       <div class="col-sm-9">
+												
+												<div class="">
+													<label>
+													{if condition="$neirong.jiage eq 0"}
+														<input name="jiage" value="1" type="radio" checked>
+														 免费
+													
+														<input name="jiage" value="2" type="radio" >
+														 收费
+													{else}
+													<input name="jiage" value="1" type="radio">
+														 免费
+													
+														<input name="jiage" value="2" type="radio" checked>
+														 收费
+												    {/if}
+														<input name="feiyong" type="text" id="form-field-1" placeholder="0.00" value="{$neirong->jiage}" />
+													</label>
+												</div>
+											</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 简述： </label>
+
+										<div class="col-sm-4">
+										<textarea name="gaishu" class="form-control limited" id="form-field-9" maxlength="50">{$neirong->gaishu}</textarea>
+										</div>				
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 详情：</label>
+<div class="col-sm-9">
+										  <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        {$neirong->content}
+    </script>
+    <!-- 配置文件 -->
+ </div>
+     <!-- 配置文件 -->
+    <script type="text/javascript" src="publics/admin/bianjiqi/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="publics/admin/bianjiqi/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+									</div>
+<input type="hidden" name="id" value="{$neirong->id}">
+									<div class="space-4"></div>
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												修改
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												重置
+											</button>
+										</div>
+									</div>
+								</form>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+<script type="text/javascript">
+   $('#sub').click(function () {
+      ajaxPost();
+    }) 
+   function ajaxPost(){
+   	var formData = new FormData();
+    if($('#file')[0].files.length <= 0) {
+      alert('请选择文件');
+      return;
+    }
+    formData.append('image', $('#file')[0].files[0]);
+    $.ajax({
+      type:'post',
+      url:"{:url('huandengpian/picture')}",  
+      data: formData,
+      cache: false,
+      processData: false,
+      contentType: false,
+    success:function(data){
+      if(data){
+      	var html='<img src="'+data.src+'" width="480" height="135">'
+       $('#content').html(html);
+       $('[name=suoluetu]').val(data.src);
+      }else{
+      	alert("上传失败")
+      }
+   }
+   })
+  }
+</script>
+<script type="text/javascript">
+ $('#daleiid').change(function(){
+   $daleiid=$('#daleiid').val();
+   $.ajax({
+     type:'post',
+     url:"{:url('neirong/getzilei')}", 
+     data: 'daleiid='+$daleiid,
+     dataType:"json",
+     success:function(data){
+     	var html;
+     	for(var i in data) {
+     		html+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
+     	}
+     	$('#zileiid').html(html);
+      }
+   })
+ })
+</script>
+	</body>
+</html>

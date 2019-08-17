@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/css/example.css"/>
+     <link rel="stylesheet" href="publics/mobile/css/swiper/css/swiper.min.css">
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        {include file="public/head"}
+        <div class="weui-tab">
+            <!-- 公共区域的开始 -->
+            <div class="weui-tab__panel">
+             <!--公共区域 -->
+                <iframe name="content" id="content" src="{:url('index/tuijian')}" frameborder="0" scrolling="no" width="100%"></iframe>
+                <script type="text/javascript">
+                  function reinitIframe(){
+                  var iframe = document.getElementById("content");
+                  try{
+                  var bHeight = iframe.contentWindow.document.body.scrollHeight;
+                  var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+                  var height = Math.max(bHeight, dHeight);
+                  iframe.height = height;
+                  // console.log(height);
+                  }catch (ex){}
+                  }
+                  window.setInterval("reinitIframe()", 200);
+                  </script>
+            </div>
+         <!-- 公共区域的结束 -->
+         <!-- 底部的开始 -->
+            <div class="weui-tabbar">
+                <a href="{:url('index/tuijian')}" class="weui-tabbar__item weui-bar__item_on" target="content">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="publics/mobile/images/footer01.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+                    </span>
+                    <p class="weui-tabbar__label">主页</p>
+                </a>
+                <a href="{:url('index/category')}" class="weui-tabbar__item" target="content">
+                    <img src="publics/mobile/images/footer02.png" alt="" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label">分类</p>
+                </a>
+                <a href="{:url('search')}" class="weui-tabbar__item" target="content">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="publics/mobile/images/footer03.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+                    </span>
+                    <p class="weui-tabbar__label">搜索</p>
+                </a>
+                <a href="{:url('/xueyuan/index')}" class="weui-tabbar__item" target="content">
+                    <img src="publics/mobile/images/footer04.png" alt="" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label">我</p>
+                </a>
+            </div>
+             <!-- 底部的结束 -->
+        </div>
+    </div>
+</div>
+<script src="publics/mobile/js/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+</script>
+
+  
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+    <title>微信支H5支付</title>
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+    
+  
+</head>
+<body>
+    <br/>
+    <font color="#9ACD32"><b>金额为<span style="color:#f00;font-size:50px">{$neirong->jiage}</span>钱</b></font><br/><br/>
+  <div align="center">
+  <a href="{$url}" target="_blank">
+  确认支付
+  </a>
+  </div>
+  <script>
+function get_pay_status(){
+   url="{:url('wxpay/paystatus')}";
+   pay_success_url="{:url('wxpay/paysuccess')}";
+   var id="{$id}";
+   postData={
+    'id':id,
+   };
+   $.post(url,postData,function(result){
+         if(result.code==1){
+            self.location=pay_success_url;
+         }
+    },'JSON');
+}
+window.setInterval("get_pay_status()",2000);
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+</head>
+<body ontouchstart>
+<div class="page">
+ {include file="public/flash"}
+    <div class="page__hd">
+        <h1 class="page__title">类目：{$leimu.name}</h1>
+        <p class="page__desc"></p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-panel weui-panel_access">
+            
+            <div class="weui-panel__bd">
+                {volist name="categorys" id="vo" length="20"} 
+                <a href="{:url('chapter',['id'=>$vo.id])}" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="publics/mobile/images/xiaobiao.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">{$vo.name}</h4>
+                        <p class="weui-media-box__desc">{$vo.gaishu}</p>
+                        <ul class="weui-media-box__info">
+                        <li class="weui-media-box__info__meta">作者：{:mingchengzhuanhuan($vo.zuozheid,$vo.zuozheleixing)}</li>
+                        <li class="weui-media-box__info__meta"></li>
+                        <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">点击量：{$vo.liulantongji}</li>
+                        </ul>
+                    </div>
+                     
+                </a>
+                {/volist} 
+            </div>
+            <div class="weui-panel__ft">
+                <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-cell__bd">查看更多</div>
+                    <span class="weui-cell__ft"></span>
+                </a>    
+            </div>
+        </div>
+    </div>
+</div>
+<script src="publics/mobile/js/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+</script>
+</body>
+</html>

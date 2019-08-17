@@ -1,0 +1,177 @@
+	
+<!-- 导航开始 -->
+	<ul class="nav nav-list">
+		<li class="active">
+			<a href="">
+				<i class="menu-icon fa fa-home"></i>
+				<span class="menu-text"> 系统首页 </span>
+			</a>
+
+			<b class="arrow"></b>
+		</li>
+        <!-- 个人信息 -->
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon glyphicon glyphicon-user"></i>
+				<span class="menu-text"> 个人信息</span>
+
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+
+			<b class="arrow"></b>
+			<ul class="submenu">
+			    <li class="">
+					<a href="{:url('gerenxinxi/index')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						基本信息
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				 {if condition="$Think.session.leixing eq 3"}
+				<li class="">
+					<a href="{:url('gerenxinxi/mima')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						修改密码
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				{/if}
+                <li class="">
+					<a href="{:url('gerenxinxi/lianxi')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						联系信息
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				<li class="">
+					<a href="{:url('gerenxinxi/yinhang')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						银行账户
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+			</ul>
+		</li>
+		 <!-- 内容管理 -->
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon glyphicon glyphicon-book"></i>
+				<span class="menu-text"> 课程管理</span>
+
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+
+			<b class="arrow"></b>
+			<ul class="submenu">
+			 
+				<li class="">
+					<a href="{:url('neirong/kechenglist')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						课程目录
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				<li class="">
+					<a href="{:url('neirong/kechenglistadd')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						添加课程
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+              
+			</ul>
+		</li>
+		<!-- 我的收入 -->
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon glyphicon glyphicon-usd"></i>
+				<span class="menu-text"> 我的收入</span>
+
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+
+			<b class="arrow"></b>
+			<ul class="submenu">
+			 
+				<li class="">
+					<a href="{:url('shouru/gaofei')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						稿费收入
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				<li class="">
+					<a href="{:url('shouru/tuiguangyongjin')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						推广佣金
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				<li class="">
+					<a href="{:url('shouru/zhaoshangyongjin')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						招聘佣金
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+              
+			</ul>
+		</li>
+		<!-- 我的分享 -->
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon glyphicon glyphicon-share"></i>
+				<span class="menu-text"> 我的分享</span>
+
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+
+			<b class="arrow"></b>
+			<ul class="submenu">
+			 
+				<li class="">
+					<a href="{:url('fenxiang/fenxiang')}" target="content">
+						<i class="menu-icon fa fa-caret-right"></i>
+						分享信息
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+              
+			</ul>
+		</li>
+		<!-- 退出登录 -->
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon glyphicon glyphicon-log-out"></i>
+				<span class="menu-text"> 退出登录</span>
+
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+
+			<b class="arrow"></b>
+			<ul class="submenu">
+			 
+				<li class="">
+					<a href="{:url('login/tuichu')}" target="">
+						<i class="menu-icon fa fa-caret-right"></i>
+						退出登录
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+              
+			</ul>
+		</li>
+ 
+</ul><!-- /.nav-list -->
+<!-- /导航结束 -->

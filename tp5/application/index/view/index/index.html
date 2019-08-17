@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+{include file="public/head"}
+<script type="text/javascript">
+            var childWindow;
+            function toQzoneLogin()
+            {
+                childWindow = window.open("{:url('xueyuan/qq/qianduanqqlogin')}","TencentLogin","width=450,height=320,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+            } 
+            
+            function closeChildWindow()
+            {
+                childWindow.close();
+            }
+        </script>
+<body class="user-select">
+   {include file="public/nav"} 
+  <section class="container">
+  <div class="content-wrap">
+    <div class="content">
+      <div id="focusslide" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#focusslide" data-slide-to="0" class="active"></li>
+          <li data-target="#focusslide" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          {volist name="huandengpian" id="vo"}
+          <div class="item {if condition='$i eq 1'}active{/if}">
+          <a href="http://www.muzhuangnet.com/show/269.html" target="_blank" title="木庄网络博客源码" >
+          <img src="{$vo.suoluetu}" alt="木庄网络博客源码" class="img-responsive"></a>
+          </div>
+          {/volist}
+        </div>
+        <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">上一个</span> </a> <a class="right carousel-control" href="#focusslide" role="button" data-slide="next" rel="nofollow"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">下一个</span> </a> 
+    </div>
+      {volist name="tuijianzhiding" id="vo" length="1"}
+      <article class="excerpt-minic excerpt-minic-index">
+            <h2><span class="red">【推荐置顶】</span><a target="_blank" href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" >{$vo.name}</a>
+            </h2>
+            <p class="note">{$vo.gaishu}</p>
+        </article>
+       {/volist}
+      <div class="title">
+        <h3>最新发布</h3>
+        <div class="more">                
+                <a href="http://www.muzhuangnet.com/list/mznetblog/" title="MZ-NetBlog主题" >MZ-NetBlog主题</a>                
+                <a href="http://www.muzhuangnet.com/list/code/" title="IT技术笔记" >IT技术笔记</a>                
+                <a href="http://www.muzhuangnet.com/list/share/" title="源码分享" >源码分享</a>                
+                <a href="http://www.muzhuangnet.com/list/money/" title="靠谱网赚" >靠谱网赚</a>                
+                <a href="http://www.muzhuangnet.com/list/news/" title="资讯分享" >资讯分享</a>                
+            </div>
+      </div>
+      {volist name="zuixinfabu" id="vo" length="20"}
+      <article class="excerpt excerpt-1" style="">
+            <header><a class="cat" href="" title="MZ-NetBlog主题" >{$vo.leibie|get_leibie="name"}<i></i></a>
+                <h2><a href="{:url('chapter',['id'=>$vo.id])}" title="" target="_blank" >{$vo.name}</a>
+                </h2>
+            </header>
+            <p class="meta">
+                <time class="time"><i class="glyphicon glyphicon-time"></i> {$vo.create_time}</time>
+                <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span> <a class="comment" href="http://www.muzhuangnet.com/show/269.html#comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> 4</a>
+            </p>
+            <p class="note">用DTcms做一个独立博客网站（响应式模板），采用DTcms V4.0正式版（MSSQL）。开发环境：SQL2008R2+VS2010。DTcms V4.0正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）</p>
+        </article>
+        {/volist}
+     
+      
+      <nav class="pagination" style="display: none;">
+        <ul>
+          <li class="prev-page"></li>
+          <li class="active"><span>1</span></li>
+          <li><a href="?page=2">2</a></li>
+          <li class="next-page"><a href="?page=2">下一页</a></li>
+          <li><span>共 2 页</span></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="fixed">
+      <div class="widget widget-tabs">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#notice" aria-controls="notice" role="tab" data-toggle="tab" >学员登录</a></li>
+          <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab" >联系站长</a></li>
+        </ul>
+        <div class="tab-content">
+         {if condition="$Think.session.xueyuanname"}
+           欢迎{$Think.session.xueyuanname}
+           <br>
+           <a href="{:url('/xueyuan/tuiguang/index',['id'=>$Think.session.id,'leixing'=>$Think.session.leixing])}">我的推广</a>
+            <br>
+             <a href="{:url('/xueyuan/index')}">个人中心</a>
+            <br>
+            <a href="{:url('/xueyuan/login/tuichu/')}">退出1</a>
+           {else}
+            <form class="form-horizontal" action="{:url('/xueyuan/login/index')}" method="post">
+              <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">账号：</label>
+                <div class="col-sm-9">
+                  <input name="username" type="text" class="form-control" id="firstname" placeholder="字母或数字" onkeyup="this.value=this.value.replace(/[^\w_]/g,'');">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lastname" class="col-sm-3 control-label">密码：</label>
+                <div class="col-sm-9">
+                  <input name="password" type="password" class="form-control" id="lastname" placeholder="请输入密码">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-5">
+                  <button type="submit" class="btn btn-default">登录</button>
+                  
+                </div>
+                <div class="col-sm-7">
+                  其他登录：
+               <a href="{:url('xueyuan/weixin/qianduanweixinlogin')}"> <img src="publics/index/images/weixin1.png"/></a>
+
+                  <a onclick='toQzoneLogin()'><img src="publics/index/images/qq1.png"></a>
+                </div>
+              </div>
+            </form>
+           {/if}
+            <div role="tabpanel" class="tab-pane contact" id="contact">
+              <h2>QQ:
+                  <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=577211782&amp;site=qq&amp;menu=yes" target="_blank" rel="nofollow" data-toggle="tooltip" data-placement="bottom" title=""  data-original-title="QQ:577211782">577211782</a>
+              </h2>
+              <h2>Email:
+              <a href="mailto:577211782@qq.com" target="_blank" data-toggle="tooltip" rel="nofollow" data-placement="bottom" title=""  data-original-title="Email:577211782@qq.com">577211782@qq.com</a></h2>
+          </div>
+        </div>
+      </div>
+      <div class="widget widget_search">
+        <form class="navbar-form" action="/Search" method="post">
+          <div class="input-group">
+            <input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字" maxlength="15" autocomplete="off">
+            <span class="input-group-btn">
+            <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
+            </span> </div>
+        </form>
+      </div>
+    </div>
+    <div class="widget widget_hot">
+          <h3>推荐内容</h3>
+          <ul>   
+            {volist name="tuijian" id="vo" length="20"}         
+                <li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
+                    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
+                </span><span class="text">{$vo.name}</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
+                    2016-11-01
+                </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
+                {/volist}
+               
+  
+          </ul>
+     </div>
+     <div class="widget widget_sentence">    
+        <a href="http://web.muzhuangnet.com/" target="_blank" rel="nofollow" title="专业网站建设" >
+        <img style="width: 100%" src="http://www.muzhuangnet.com/upload/201610/24/201610241224221511.jpg" alt="专业网站建设" ></a>    
+     </div>
+     <div class="widget widget_sentence">    
+        <a href="http://www.muzhuangnet.com/show/269.html" target="_blank" rel="nofollow" title="MZ-NetBlog主题" >
+        <img style="width: 100%" src="images/ad.jpg" alt="MZ-NetBlog主题" ></a>    
+     </div>
+    <div class="widget widget_sentence">
+      <h3>友情链接</h3>
+      <div class="widget-sentence-link">
+        <a href="http://web.muzhuangnet.com" title="网站建设" target="_blank" >网站建设</a>&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </aside>
+</section>
+      {include file="public/foot"} 
+    <script src="publics/index/js/bootstrap.min.js"></script>
+    <script src="publics/index/js/jquery.ias.js"></script>
+    <script src="publics/index/js/scripts.js"></script>
+</body>
+</html>

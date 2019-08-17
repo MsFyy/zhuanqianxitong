@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/css/example.css"/>
+    <link rel="stylesheet" href="publics/mobile/swiper/css/swiper.min.css">
+</head>
+<body ontouchstart>
+<div class="page">
+ {include file="public/flash"}
+    <div class="page__hd">
+        <h1 class="page__title">课程：{$neirong.name}</h1>
+        <p class="page__desc">费用：{$neirong.jiage}</p>
+    </div>
+    <div class="page__bd">
+        <input type="hidden" name="kechengid" value="{$neirong.id}">
+        <div class="weui-cells__title">支付方式</div>
+        <div class="weui-cells weui-cells_radio">
+          {if $shebei==1}
+            <label class="weui-cell weui-check__label" for="x12">
+                 <a href="{:url('Wxpaym/index',['wenzhangid'=>$neirong.id])}" target="_blank">
+                <div class="weui-cell__bd">
+
+                    <img src="publics/index/images/weixinzhifu.jpg" alt="" style="width:80px;margin-right:5px;display:block">
+                </div>
+                </a>
+                
+            </label>
+            {else/}
+            <label class="weui-cell weui-check__label" for="x11">
+             <a href="{:url('Zfbpaym/index',['wenzhangid'=>$neirong.id])}" target="_blank">
+                <div class="weui-cell__bd">      
+                   <img src="publics/index/images/zhifubao.jpg" alt="" style="width:80px;margin-right:5px;display:block">
+
+                </div>
+                </a> 
+            </label>
+             <label class="weui-cell weui-check__label" for="x12">
+                 <a href="{:url('Wxpaymh/index',['wenzhangid'=>$neirong.id])}" target="_blank">
+                <div class="weui-cell__bd">
+
+                    <img src="publics/index/images/weixinzhifu.jpg" alt="" style="width:80px;margin-right:5px;display:block">
+                </div>
+                </a>
+                
+            </label>
+            {/if}
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd">添加更多</div>
+            </a>
+        </div>
+</div>
+
+</body>
+</html>

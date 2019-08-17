@@ -1,0 +1,100 @@
+<html lang="zh-CN" class=" "><head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MZ-NetBlog木庄网络博客DTcms二次开发版源码下载-木庄网络博客</title>
+    <meta name="keywords" content="木庄网络博客,源码">
+    <meta name="description" content="木庄网络博客DTcms二次开发版源码已整理完毕，现免费分享给大家。本着对技术的学习与交流的目的，代码质量可能不是很高，还望大家伙有发现BUG之类的问题，欢迎联系站长沟通交流，也可以通过木庄网络博客交流群进行讨论。在此谢过。源码下载地址：https://muzhuanggzs.pipipan.…">
+    <meta http-equiv="windows-Target " content="_top ">
+<link rel="stylesheet" type="text/css" href="publics/index/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/nprogress.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/style.css">
+<link rel="stylesheet" type="text/css" href="publics/index/css/font-awesome.min.css">
+<link rel="apple-touch-icon-precomposed" href="publics/index/images/icon.png">
+<script src="publics/index/js/jquery-2.1.4.min.js"></script>
+<script src="publics/index/js/nprogress.js"></script>
+<script src="publics/index/js/jquery.lazyload.min.js"></script>
+</head>
+<body class="user-select single">
+    <section class="container">
+  <div class="content-wrap">
+    <div class="content">
+
+        <div class="article-tags">课程名称：<a href="http://www.muzhuangnet.com/tags/list/3/" rel="tag" draggable="false">{$neirong->name}</a><a href="http://www.muzhuangnet.com/tags/list/756/" rel="tag" draggable="false">价格：{$neirong->jiage}元</a>
+        </div>
+        <div class="article-shang">
+            <p><a href="javascript:void(0)" rel="nofollow" style="color: #fff" onclick="dashangToggle()" class="dashang" title="打赏，支持一下" draggable="false">打赏</a>
+            </p>
+        </div>
+        <div class="hide_box">
+                            </div>
+                            <div class="shang_box">
+                             
+                                <div class="shang_tit">
+                                    <p>
+                                       选择支付方式:</p><br><br>
+                                </div>
+                                <div class="shang_payimg">&nbsp;&nbsp;&nbsp;&nbsp;
+                                   <a href="{:url('wxpay/index',['wenzhangid'=>$neirong->id])}"><img src="publics/index/images/weixinzhifu.jpg" alt="扫码支持" title="扫一扫" draggable="false"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   <a href="{:url('zfbpay/index',['wenzhangid'=>$neirong->id])}"><img src="publics/index/images/zhifubao.jpg" alt="扫码支持" title="扫一扫" draggable="false"></a>
+                                </div>
+                               
+                                
+                               
+                            </div>
+      
+      
+        
+      
+    </div>
+  </div>
+
+</section>
+    <footer class="footer">
+      <div class="container">
+        <p>本站[<a href="http://www.muzhuangnet.com/" draggable="false">木庄网络博客</a>]的部分内容来源于网络，若侵犯到您的利益，请联系站长删除！谢谢！Powered By [<a href="http://www.dtcms.net/" target="_blank" rel="nofollow" draggable="false">DTcms</a>] Version 4.0</p>
+      </div>
+      <div id="gotop" style="display: none;"><a class="gotop" draggable="false"></a></div>
+</footer>
+    <div id="rightClickMenu">
+    <ul class="list-group rightClickMenuList">
+        <li class="list-group-item disabled">欢迎访问木庄网络博客</li>
+        <li class="list-group-item disabled"><span>可复制：</span>代码框内的文字。</li>
+        <li class="list-group-item disabled"><span>方法：</span>Ctrl+C。</li>
+    </ul>
+</div><script src="/templates/blog/js/bootstrap.min.js"></script>
+<script src="/templates/blog/js/jquery.ias.js"></script>
+<script src="/templates/blog/js/scripts.js"></script>
+
+    <script type="text/javascript">
+        $("#author").val($.cookie('nickCookie'));
+        $("#email").val($.cookie('emailCookie'));
+        $("#url").val($.cookie('urlCookie'));
+    </script>
+    <script type="text/javascript">
+        function siteTime() {
+            window.setTimeout("siteTime()", 1000);
+            var seconds = 1000;
+            var minutes = seconds * 60;
+            var hours = minutes * 60;
+            var days = hours * 24;
+
+            var today = new Date();
+            var todayYear = today.getFullYear();
+            var todayMonth = today.getMonth();
+            var todayDate = today.getDate();
+
+            var t1 = Date.UTC(2016,7,8);
+            var t2 = Date.UTC(todayYear, todayMonth, todayDate);
+            var diff = t2 - t1;
+
+            var diffDays = Math.floor(diff / days);
+            document.getElementById("sitetime").innerHTML = diffDays + " 天 ";
+        }
+        siteTime();
+</script>
+
+
+
+</body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/swiper/css/swiper.min.css">
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title"></h1>
+        <p class="page__desc"></p>
+    </div>
+    <div class="page__bd">
+        <article class="weui-article">
+            <h1>{$neirong->name}</h1>
+            <section>
+                <h2 class="title"></h2>
+                <section>
+                    <h3></h3>
+                    <p>
+                        {:html_entity_decode($neirong->content)}
+                    </p>
+                </section>
+               
+            </section>
+        </article>
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+    </div>
+</div>
+</body>
+</html>

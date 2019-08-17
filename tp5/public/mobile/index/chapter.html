@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+</head>
+<body ontouchstart>
+  <div class="page__bd">
+        <div class="weui-tab">
+         {include file="public/mulu"} 
+            <div class="weui-tab__panel">
+             <iframe name="mulu" id="mulu" src="{:url('jianjie')}" frameborder="0" scrolling="no" width="100%">
+            </iframe>
+                 <script type="text/javascript">
+                          function reinitIframe(){
+                          var iframe = document.getElementById("mulu");
+                          try{
+                          var bHeight = iframe.contentWindow.document.body.scrollHeight;
+                          var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+                          var height = Math.max(bHeight, dHeight);
+                          iframe.height = height;
+                        
+                          }catch (ex){}
+                          }
+                          window.setInterval("reinitIframe()", 800);
+                          </script>
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>

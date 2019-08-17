@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	{include file="public/head"}
+	<head>
+<script>
+function validateForm(){
+  var x=document.forms["myForm"]["xinpassword"].value;
+if (x==null || x==""){
+  alert("两次新密码输入不一致或新密码不能为空");
+  return false;
+  }
+}
+</script>
+</head>
+	<body class="no-skin">
+		<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+							<li>
+								<a href="#">个人信息</a>
+							</li>
+							<li class="active">密码修改</li>
+						</ul><!-- /.breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- /.nav-search -->
+					</div>
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								个人信息
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									密码修改
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+                       <form action="{:url('gerenxinxi/mimaupdate')}" onsubmit="return validateForm()" method="post" class="form-horizontal" role="form">
+						<div class="profile-user-info profile-user-info-striped">
+							<div class="profile-info-row">
+								<div class="profile-info-name"> 旧密码：</div>
+
+								<div class="profile-info-value">
+									<span class="editable" id="country"><input name="password" type="password"  id="form-field-1" placeholder="密码不能为空" class="col-xs-10 col-sm-4" /></span>
+								</div>
+							</div>
+							<div class="profile-info-row">
+								<div class="profile-info-name"> 新密码：</div>
+
+								<div class="profile-info-value">
+									<span class="editable" id="country"><input name="xinpassword" type="password"  id="form-field-1" placeholder="密码不能为空" class="col-xs-10 col-sm-4" /></span>
+								</div>
+							</div>
+							<div class="profile-info-row">
+								<div class="profile-info-name"> 确认新密码：</div>
+
+								<div class="profile-info-value">
+									<span class="editable" id="country"><input name="cxinpassword" type="password"  id="form-field-1" placeholder="密码不能为空" class="col-xs-10 col-sm-4" /></span>
+								</div>
+							</div>
+							<div class="profile-info-row">
+								<div class="profile-info-name"> </div>
+                                  <input type="hidden" name="id" value="{$admin->id}">
+								<div class="profile-info-value">
+									<span class="editable" id="country"><button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												修改
+											</button></span>
+								</div>
+							</div>
+						 </div>
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+	</body>
+</html>

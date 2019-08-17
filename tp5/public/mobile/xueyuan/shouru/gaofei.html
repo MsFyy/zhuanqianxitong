@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/css/example.css"/>
+     <link rel="stylesheet" href="publics/mobile/css/swiper/css/swiper.min.css">
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">稿费收入</h1>
+        <p class="page__desc">列表</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-cells__title"></div>
+        <div class="weui-cells">
+           {volist name="gaofei" id="vo"}
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>课程：{$vo.wenzhangid|get_biaoti="name"}</p>
+                </div>
+                <div class="weui-cell__ft">¥:{$vo.shouru}</div>
+            </a>
+             {/volist}
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>分页展示</title>
+	<style type="text/css">
+	.fy li{
+		float: left;
+	}
+	</style>
+
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+	<table class="table table-hover table-bordered">
+		<tr>
+			<th scope="col">#</th>
+				
+			
+			<th scope="col">
+				name
+			</th>
+			<th scope="col">
+				班级
+			</th>
+			<th scope="col">
+				成绩
+			</th>
+			<th scope="col">
+				操作
+			</th>
+		</tr>
+		<tbody>
+			
+	
+{volist name="list" id="vo"}
+<tr>
+		<td> {$vo.id} </td>
+		<td>{$vo.name} </td>
+		<td>{$vo.banji}</td>
+		<td>{$vo.chengji}</td>
+		<td>
+			<button type="button" class="btn btn-info"><a href="{:url('delete',['id'=>$vo.id])}">删除</a></button>
+		</td>
+	</tr>
+	{/volist}
+		</tbody>
+	</table>
+<div class="fy">
+</div>
+
+</body>
+</html>

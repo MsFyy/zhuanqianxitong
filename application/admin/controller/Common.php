@@ -1,0 +1,14 @@
+<?php
+namespace app\admin\controller;
+use think\Controller;
+/**
+ * 
+ */
+class Common extends Controller
+{
+	
+	function __construct(argument)
+	{
+		
+	}
+}

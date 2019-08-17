@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+    <link rel="stylesheet" href="publics/mobile/css/example.css"/>
+     <link rel="stylesheet" href="publics/mobile/css/swiper/css/swiper.min.css">
+</head>
+<body ontouchstart>
+<div class="page">
+   <!--  <div class="page__hd">
+        <h1 class="page__title">Panel</h1>
+        <p class="page__desc">面板</p>
+    </div> -->
+    <div class="page__bd">
+        <div class="weui-panel weui-panel_access">
+            <!-- <div class="weui-panel__hd">图文组合列表</div> -->
+            <div class="page__hd">
+             {if condition="$Think.session.xueyuanname eq ''"}
+                <a href="{:url('mlogin')}" class="weui-media-box weui-media-box_appmsg">
+
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="publics/mobile/images/xiaobiao.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">注册/登录</h4>
+                        <p class="weui-media-box__desc"></p>
+                    </div>
+                </a>{else}
+                 <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                         {if condition="$xueyuanimage eq ''"}
+                        <img class="weui-media-box__thumb" src="publics/mobile/images/xiaobiao.png" alt="">
+                        {else}
+                         <img class="weui-media-box__thumb" src="{$xueyuanimage}" alt="">
+                         {/if}
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">{$xueyuanname}</h4>
+                        <p class="weui-media-box__desc">欢迎</p>
+                    </div>
+                </a>
+                 {/if}
+            </div>
+        </div>
+        <div class="weui-panel">
+            <div class="weui-panel__hd">个人信息</div>
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_small-appmsg">
+                    <div class="weui-cells">
+                        <a class="weui-cell weui-cell_access" href="{:url('gerenxinxi/index')}" target="content">
+                            <div class="weui-cell__hd"><img src="publics/mobile/images/xiaobiao.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>基本信息</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                        <a class="weui-cell weui-cell_access" href="{:url('gerenxinxi/mima')}" target="content">
+                            <div class="weui-cell__hd"><img src="publics/mobile/images/xiaobiao.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>修改密码</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                        <a class="weui-cell weui-cell_access" href="{:url('gerenxinxi/lianxi')}">
+                            <div class="weui-cell__hd"><img src="publics/mobile/images/xiaobiao.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>联系信息</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                        <a class="weui-cell weui-cell_access" href="{:url('gerenxinxi/yinhang')}">
+                            <div class="weui-cell__hd"><img src="publics/mobile/images/xiaobiao.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>银行账号</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-panel">
+            <div class="weui-panel__hd">我的收入</div>
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_small-appmsg">
+                    <div class="weui-cells">
+                        <a class="weui-cell weui-cell_access" href="{:url('shouru/gaofei')}">
+                            <div class="weui-cell__hd"><img src="publics/mobile/images/xiaobiao.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>稿费收入</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                        <a class="weui-cell weui-cell_access" href="{:url('shouru/tuiguangyongjin')}">
+                            <div class="weui-cell__hd"><img src="publics/mobile/images/xiaobiao.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>推广佣金</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                        <a class="weui-cell weui-cell_access" href="{:url('shouru/zhaoshangyongjin')}">
+                            <div class="weui-cell__hd"><img src="publics/mobile/images/xiaobiao.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>招聘佣金</p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-panel">
+            <div class="weui-panel__hd">我的分享</div>
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_small-appmsg">
+                    <div class="weui-cells">
+                        <a class="weui-cell weui-cell_access" href="{:url('fenxiang/fenxiang')}">
+                            <div class="weui-cell__hd"><img src="publics/mobile/images/xiaobiao.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p>分享信息</p>
+                            </div>
+                            <span class="weui-cell__ft">支持</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {if condition="$Think.session.xueyuanname eq ''"}
+        {else}
+        <div class="weui-panel">
+            <div class="weui-panel__hd" style="align:center;margin-top:0px;font-size:15px;width:120px;margin-left:110px;display:block"> <a href="{:url('/xueyuan/login/mtuichu/')}">退出登录</a></div>
+        </div>
+        {/if}
+    </div>
+</div> 
+</body>
+</html>

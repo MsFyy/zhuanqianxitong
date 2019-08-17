@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+	{include file="public/head"}
+	<body class="no-skin">	
+	<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+							<li class="active">课程管理</li>
+						</ul><!-- /.breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- /.nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="ace-settings-container" id="ace-settings-container">
+							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+								<i class="ace-icon fa fa-cog bigger-130"></i>
+							</div>
+
+							<div class="ace-settings-box clearfix" id="ace-settings-box">
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<div class="pull-left">
+											<select id="skin-colorpicker" class="hide">
+												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
+												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+											</select>
+										</div>
+										<span>&nbsp; Choose Skin</span>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
+										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
+										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
+										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
+										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
+										<label class="lbl" for="ace-settings-add-container">
+											Inside
+											<b>.container</b>
+										</label>
+									</div>
+								</div><!-- /.pull-left -->
+
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
+										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
+										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
+										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+									</div>
+								</div><!-- /.pull-left -->
+							</div><!-- /.ace-settings-box -->
+						</div><!-- /.ace-settings-container -->
+
+						<div class="page-header">
+							<h1>
+								课程管理
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									>>添加课程
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+             <!-- 公共区开始 -->
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+							<form action="{:url('neirong/kechengsave')}" method="post" class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+								所属类别：</label>
+
+								<div class="col-sm-9">
+								<select name="dalei" class="col-xs-10 col-sm-3" id="daleiid">
+								    <option value="">请选择类别</option>
+									{volist name="dalei" id="vo"}
+									<option value="{$vo.id}">{$vo.name}</option>	
+									{/volist}				
+								</select>
+								<select name="zilei" class="col-xs-10 col-sm-2" id="zileiid">
+									<option value="">请选择子类</option>				
+								</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+								标题：</label>
+
+								<div class="col-sm-9">
+									<input name="name" type="text" id="form-field-1" placeholder="名称" value="" class="col-xs-10 col-sm-5" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+								价格：</label>
+
+							       <div class="col-sm-9">
+										
+										<div class="">
+											<label>
+												<input name="jiage" value="1" type="radio" checked>
+												 免费
+											
+												<input name="jiage" value="2" type="radio" >
+												 收费
+											
+												<input name="feiyong" type="text" id="form-field-1" placeholder="0.00" value="0.00" />
+											</label>
+										</div>
+									</div>
+							</div>
+											
+					<input type="hidden" name="xueyuanid" value="{$Think.session.id}">
+					<input type="hidden" name="xueyuanleixing" value="{$Think.session.leixing}">
+					{:token()}	
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+						教程简介：</label>
+
+						<div class="col-sm-9">
+							 <!-- 加载编辑器的容器 -->
+						    <script id="container" name="content" type="text/plain">
+						        内容
+						    </script>
+						</div>
+					</div>		
+                                    
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												提交
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												重置
+											</button>
+										</div>
+									</div>
+
+									<div class="hr hr-24"></div>
+								</form>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+
+            <!-- /公共区结束 -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+			<!-- 配置文件 -->
+    <script type="text/javascript" src="publics/admin/baidu/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="publics/admin/baidu/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var editor = UE.getEditor('container');
+    </script>
+<script type="text/javascript">
+ $('#daleiid').change(function(){
+    $daleiid=$('#daleiid').val();
+      $.ajax({
+         type:'post',
+         url:'{:url('neirong/getzilei')}',
+         data:'daleidi='+$daleiid,
+         dataType:'json',
+         success:function(data){
+	      var html;
+	      for(var i=0; i<data.length;i++){
+	      html+='<option value="'+data[i].id+'">'+data[i].name+'</option>'; 
+          }
+          $('#zileiid').html(html);
+        }
+      })
+ })
+</script>
+
+
+	</body>
+</html>

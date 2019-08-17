@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	{include file="public/head"}
+	<body class="no-skin">
+		<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+							<li>
+								<a href="#">个人信息</a>
+							</li>
+							<li class="active">银行信息</li>
+						</ul><!-- /.breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- /.nav-search -->
+					</div>
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								个人信息
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									银行信息
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<form action="{:url('gerenxinxi/yinhangupdate')}" method="post" class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">银行：</label>
+
+										<div class="col-sm-9">
+											<input name="yinhang" value="{$yinhang->yinhang}" type="text" id="form-field-1" placeholder="银行" class="col-xs-10 col-sm-3" />
+										</div>
+									</div>
+									<div class="space-4"></div>
+
+										<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">网点：</label>
+
+										<div class="col-sm-9">
+											<input name="kaihuhang" value="{$yinhang->kaihuhang}" type="text" id="form-field-1" placeholder="网点" class="col-xs-10 col-sm-3" />
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">户名：</label>
+
+										<div class="col-sm-9">
+											<input name="xingming" value="{$yinhang->xingming}" type="text" id="form-field-1" placeholder="户名" class="col-xs-10 col-sm-3" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">账号：</label>
+
+										<div class="col-sm-9">
+											<input name="yinhangzhanghao" value="{$yinhang->yinhangzhanghao}" type="text" id="form-field-1" placeholder="账号" class="col-xs-10 col-sm-3" />
+										</div>
+									</div>
+									<div class="space-4"></div>
+									<input type="hidden" name="id" value="{$yinhang->id}">
+									<input type="hidden" name="leixing" value="{$yinhang->leixing}">
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												修改
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												重置
+											</button>
+										</div>
+									</div>
+								</form>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+	</body>
+</html>

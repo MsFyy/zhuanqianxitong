@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="publics/mobile/css/weui.css"/>
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">课程分类</h1>
+        <p class="page__desc">根据分类选择自己喜欢的栏目</p>
+    </div>
+    <div class="page__bd">
+    {volist name="lanmulist" id="vo"}
+        <div class="weui-cells__title">{$vo.name}</div>
+        <div class="weui-cells">
+         {volist name="$vo.child" id="vo1"}
+            <a class="weui-cell weui-cell_access" href="{:url('categorys',['id'=>$vo1.id])}" target="content">
+                <div class="weui-cell__bd">
+                    <p>{$vo1.name}</p>
+                </div>
+                <div class="weui-cell__ft">
+                </div>
+            </a>
+              {/volist}
+        </div>
+    </div>
+    {/volist}
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+    </div>
+</div>
+<script src="publics/mobile/js/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+</script>
+</body>
+</html>
