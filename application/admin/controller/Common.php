@@ -7,8 +7,9 @@ use think\Controller;
 class Common extends Controller
 {
 	
-	function __construct(argument)
+	function _initialize()
 	{
-		
+		$gongneng=model('Cate')->getlist();
+		$this->assign('gongneng',$gongneng);
 	}
 }

@@ -110,63 +110,50 @@
 									<div class="col-sm-6">
 										<div class="dd" id="nestable">
 											<ol class="dd-list">
-												
+												{volist name="gongneng" id="vo"}
 
 												<li class="dd-item" data-id="2">
-													<div class="dd-handle">Item 2
-													<div class="pull-right action-buttons">
-																	<a class="blue" href="#">
-																		<i class="ace-icon fa fa-pencil bigger-130"></i>
-																	</a>
+													<div class="dd-handle">{$vo.name}
+														<div class="pull-right action-buttons">
+															<a class="blue" href="{:url('eidt',['id'=>$vo.id])}" target="content">
+																<i class="ace-icon fa fa-pencil bigger-130"></i>
+															</a>
 
-																	<a class="red" href="#">
-																		<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																	</a>
+															<a class="red" href="{:url('delete',['id'=>$vo.id,'state'=>0])}">
+																<i class="ace-icon fa fa-trash-o bigger-130"></i>
+															</a>
+														</div>
+													<div class="pull-right action-buttons">
+
 																</div>
 													</div>
-
+													{volist name="$vo.child" id="v"}
 													<ol class="dd-list">
+
 														<li class="dd-item" data-id="3">
-															<div class="dd-handle">
-																Item 3
-																<a data-rel="tooltip" data-placement="left" title="Change Date" href="#" class="pull-right tooltip-info btn btn-primary btn-mini btn-white btn-bold">
-																	<i class="bigger-120 ace-icon fa fa-calendar"></i>
+															<div class="dd-handle ">
+																{$v.name}
+																<div class="pull-right action-buttons">
+																<a class="blue" href="{:url('eidt',['id'=>$v.id])}" target="content">
+																	<i class="ace-icon fa fa-pencil bigger-130"></i>
+																</a>
+
+																<a class="red" href="{:url('delete',['id'=>$v.id,'state'=>0])}">
+																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
 																</a>
 															</div>
-														</li>
-
-														<li class="dd-item" data-id="4">
-															<div class="dd-handle">
-																<span class="orange">Item 4</span>
-																<span class="lighter grey">
-																	&nbsp; with some description
-																</span>
 															</div>
 														</li>
 
-														<li class="dd-item" data-id="5">
-															<div class="dd-handle">
-																Item 5
-																<div class="pull-right action-buttons">
-																	<a class="blue" href="#">
-																		<i class="ace-icon fa fa-pencil bigger-130"></i>
-																	</a>
 
-																	<a class="red" href="#">
-																		<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																	</a>
-																</div>
-															</div>
-
-															
-														</li>
 
 														
 
 														
 													</ol>
+													{/volist}
 												</li>
-
+												{/volist}
 											
 
 											</ol>
@@ -204,20 +191,20 @@
 		<script src="__ADM_STATIC/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
+
 		<script type="text/javascript">
-			jQuery(function($){
-			
-				$('.dd').nestable();
-			
-				$('.dd-handle a').on('mousedown', function(e){
-					e.stopPropagation();
-				});
-				
-				$('[data-rel="tooltip"]').tooltip();
-			
-			});
+		/*	jQuery(function($){
+
+		$('.dd').nestable();
+
+		$('.dd-handle a').on('mousedown', function(e){
+		e.stopPropagation();
+		});
+
+		$('[data-rel="tooltip"]').tooltip();
+
+		});*/
 		</script>
-	
 
 	</body>
 </html>

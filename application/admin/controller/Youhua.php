@@ -3,7 +3,7 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Db;
 
-class Youhua extends Controller
+class Youhua extends Common
 {
    
     public function index(){
@@ -18,7 +18,7 @@ class Youhua extends Controller
     	if($rust){
     		$this->success('修改成功',url('index'));
     	}else{
-    		$this->eeor('修改失败',url('index'));
+    		$this->error('修改失败',url('index'));
     	}
 
 		

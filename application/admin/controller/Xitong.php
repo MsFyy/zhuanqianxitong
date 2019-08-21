@@ -3,7 +3,7 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Db;
 
-class Xitong extends Controller
+class Xitong extends Common
 {
    
     public function index(){

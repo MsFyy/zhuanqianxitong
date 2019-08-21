@@ -2,7 +2,8 @@
 namespace app\admin\controller;
 use think\Controller;
 
-class Gongnengadd extends Controller
+
+class Gongnengadd extends Common
 {
    
     public function index(){
@@ -23,7 +24,7 @@ class Gongnengadd extends Controller
     		$this->success('成功','index');
     	}else{    		
     // 验证失败 输出错误信息
-   				 dump($model('Cate')->getError());
+   				 dump(model('Cate')->getError());
     	}
 }
     	
